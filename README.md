@@ -19,7 +19,7 @@ I haven't figured out package publishing just yet. For now, you can copy this re
 
 | Rosé Pine Dawn | Rosé Pine |
 | ------------- | ------------- |
-| ![Rosé Pine Dawn (light mode)](./images/preview-light.png) | ![Rosé Pine (dark mode)](./images/preview-dark.png) |
+| ![Rosé Pine Dawn (light mode)](https://github.com/nonnullish/rose-pine-jsdoc/blob/main/images/preview-light.png?raw=true) | ![Rosé Pine (dark mode)](https://github.com/nonnullish/rose-pine-jsdoc/blob/main/images/preview-dark.png?raw=true) |
 
 ### Features
 
