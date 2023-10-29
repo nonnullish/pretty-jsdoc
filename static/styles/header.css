@@ -1,0 +1,125 @@
+:root {
+  --header-image-mix-blend-mode: multiply;
+  --header-image-max-height: 80px;
+  --header-title-font-weight: calc(var(--font-weight-bold) + 100);
+}
+
+header.layout-header {
+  background: inherit;
+
+  & .header-image {
+    display: flex;
+    justify-content: center;
+    mix-blend-mode: var(--header-image-mix-blend-mode);
+
+    & img {
+      max-height: var(--header-image-max-height);
+    }
+  }
+
+  & h1 {
+    text-align: center;
+
+    & a {
+      color: var(--rp-text);
+      font-weight: var(--header-title-font-weight);
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  & nav.layout-nav {
+    list-style: none;
+
+    & ul {
+      padding: 0;
+    }
+
+    & li.nav-heading {
+      color: var(--rp-muted);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+
+      & .nav-item-name,
+      a {
+        display: block;
+        margin: 16px 0 2px 0;
+        text-transform: initial;
+      }
+
+      & .nav-item-type {
+        display: none;
+      }
+    }
+
+    & li.nav-item {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+
+      & a {
+        font-weight: normal;
+      }
+
+      & .nav-item-type {
+        align-items: baseline;
+        border-radius: 3px;
+        color: var(--rp-base);
+        cursor: default;
+        display: inline-flex;
+        flex-shrink: 0;
+        font-size: 0.8em;
+        font-weight: calc(var(--font-weight-bold) + 100);
+        height: 1.2rem;
+        justify-content: center;
+        user-select: none;
+        width: 1.2rem;
+
+        &.type-typedef {
+          background: var(--rp-gold);
+        }
+
+        &.type-function {
+          background: var(--rp-rose);
+        }
+
+        &.type-namespace {
+          background: var(--rp-foam);
+        }
+
+        &.type-member {
+          background: var(--rp-pine);
+        }
+
+        &.type-module {
+          background: var(--rp-love);
+        }
+
+        &.type-event {
+          background: var(--rp-muted);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  button.menu-toggle {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  button.menu-toggle {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--rp-text);
+    cursor: pointer;
+    display: block;
+    outline: none;
+    width: 100%;
+  }
+}

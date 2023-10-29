@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title><?js= env.conf.metadata.title ?>: <?js= title ?></title>
-    <?js if (env.conf.opts.hasOwnProperty('prism-theme')) { ?>
-      <link type="text/css" rel="stylesheet" href="styles/vendor/<?js= env.conf.opts['prism-theme'] ?>.css">
-    <?js } else { ?>
-      <link type="text/css" rel="stylesheet" href="styles/vendor/prism-tomorrow-night.css">
-    <?js } ?>
-    <link type="text/css" rel="stylesheet" href="styles/styles.css">
-    <?js if (env.conf.hasOwnProperty('styles')) { ?>
-    <?js var styles = env.conf.styles; ?>
-    <style>
-      :root {
-      <?js for (var key in styles) { ?>
-      <?js if (styles.hasOwnProperty(key)) { ?>
-        --<?js= key + ': ' + styles[key] ?>;
-      <?js } } ?>
-      }
-    </style>
-    <?js } ?>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+  <title><?js= env.conf.metadata.title ?>: <?js= title ?></title>
+  <?js if (env.conf.opts.hasOwnProperty('prism-theme')) { ?>
+    <link type="text/css" rel="stylesheet" href="styles/vendor/<?js= env.conf.opts['prism-theme'] ?>.css">
+  <?js } else { ?>
+    <link type="text/css" rel="stylesheet" href="styles/vendor/prism-rose-pine.css">
+  <?js } ?>
+  <link type="text/css" rel="stylesheet" href="styles/styles.css">
+  <?js if (env.conf.hasOwnProperty('styles')) { ?>
+  <?js var styles = env.conf.styles; ?>
+  <style>
+    :root {
+    <?js for (var key in styles) { ?>
+    <?js if (styles.hasOwnProperty(key)) { ?>
+      --<?js= key + ': ' + styles[key] ?>;
+    <?js } } ?>
+    }
+  </style>
+  <?js } ?>
+  <script src="scripts/menu.js"></script>
 </head>
 <body>
 
 <header class="layout-header">
   <?js if (env.conf.metadata.logo) { ?>
-    <a href="./">
-      <img
-        src="<?js= env.conf.metadata.logo ?>"
-        alt="<?js= env.conf.metadata.title ?>"
-      >
-    </a>
+    <div class="header-image">
+      <a href="./">
+        <img
+          src="<?js= env.conf.metadata.logo ?>"
+          alt="<?js= env.conf.metadata.title ?>"
+        >
+      </a>
+    </div>
   <?js } ?>
   <h1>
     <a href="./index.html">
       <?js= env.conf.metadata.title ?>
     </a>
   </h1>
+  <button aria-label="Toggle Contents" class="menu-toggle" onclick="toggleMenu();">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </button>
   <nav class="layout-nav">
     <?js= this.nav ?>
   </nav>

@@ -1,0 +1,108 @@
+@import "https://rsms.me/inter/inter.css";
+@import "https://fonts.googleapis.com/css2?family=Martian+Mono:wght@500;700&display=swap";
+
+:root {
+  --font-size: 0.85em;
+  --font-weight-bold: 600;
+  --font-weight: 400;
+  --font: "Inter var", sans-serif;
+  --line-height: 1.75;
+  --monospace-font-size: 90%;
+  --monospace-font-weight: 500;
+  --monospace-font-weight-bold: 700;
+  --monospace-font: "Martian Mono", monospace;
+  --paragraph-margin: 1.5ch 0 1ch 0;
+}
+
+::selection {
+  color: var(--rp-text);
+  background: var(--rp-highlight-med);
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  color: var(--rp-text);
+
+  & h1, h2, h3, h4, h5, h6, p {
+    margin: var(--paragraph-margin);
+  }
+
+  & h1, h2, h3, h4, h5, h6, b, strong {
+    font-weight: var(--font-weight-bold);
+  }
+
+  & a {
+    color: var(--rp-link);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+
+    & code, pre {
+      font-weight: var(--monospace-font-weight-bold);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  & .page-kind {
+    text-transform: uppercase;
+    font-weight: var(--font-weight-bold);
+    color: var(--rp-muted);
+  }
+
+  & .method-name {
+    font-family: var(--monospace-font);
+    font-size: var(--monospace-font-size);
+  }
+
+  & span.signature-attributes {
+    vertical-align: super;
+    margin-left: 2px;
+    color: var(--rp-highlight-high);
+  }
+
+  & span.param-name {
+    font-weight: var(--font-weight-bold);
+  }
+
+  & span.param-attributes {
+    font-family: var(--monospace-font);
+    font-size: var(--monospace-font-size);
+    color: var(--rp-highlight-high);
+  }
+
+  & span.param-default {
+    font-family: var(--monospace-font);
+    font-size: var(--monospace-font-size);
+  }
+
+  & span.param-default:before {
+    content: "Default: ";
+    font-family: var(--font);
+    font-size: 1rem;
+  }
+
+  & .param-description p, .method-returns p {
+    padding: 0;
+    margin: 0;
+  }
+
+  & ul.method-params li {
+    margin-bottom: 8px;
+  }
+
+  & span.return-type-signature {
+    color: var(--rp-muted);
+  }
+
+  & li.method-source a {
+    color: var(--rp-muted);
+  }
+}

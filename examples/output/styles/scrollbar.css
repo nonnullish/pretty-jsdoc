@@ -1,0 +1,21 @@
+:root {
+  --scrollbar-width: 8px;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--rp-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rp-highlight-high);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--rp-highlight-high) var(--rp-surface);
+}

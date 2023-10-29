@@ -1,147 +1,101 @@
-# tidy-jsdoc
+<p align="center">
+  <img src="https://github.com/rose-pine/rose-pine-theme/raw/main/assets/icon.png" width="80" />
+  <h2 align="center">Rosé Pine for JSDoc</h2>
+</p>
 
-[![Build Status](https://travis-ci.org/julie-ng/tidy-jsdoc.svg?branch=master)](https://travis-ci.org/julie-ng/tidy-jsdoc)
-[![Known Vulnerabilities](https://snyk.io//test/github/julie-ng/tidy-jsdoc/badge.svg?targetFile=package.json)](https://snyk.io//test/github/julie-ng/tidy-jsdoc?targetFile=package.json)
+<p align="center">
+  <a href="https://github.com/rose-pine/rose-pine-theme">
+    <img src="https://img.shields.io/badge/community-rosé%20pine-26233a?labelColor=191724&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjIzNyIgdmlld0JveD0iMCAwIDI1MCAyMzciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xNjEuMjI3IDE2MS4yNTFDMTMyLjE1NCAxNjkuMDQxIDExNC45MDEgMTk4LjkyNCAxMjIuNjkxIDIyNy45OTdDMTIzLjkyNSAyMzIuNjAzIDEyOC42NTkgMjM1LjMzNiAxMzMuMjY0IDIzNC4xMDJMMTg1LjkwNyAyMTkuOTk2QzIxOS41ODUgMjEwLjk3MiAyMzkuNTcgMTc2LjM1NCAyMzAuNTQ2IDE0Mi42NzdMMTYxLjIyNyAxNjEuMjUxWiIgZmlsbD0iIzI0NjI3QiIvPgo8cGF0aCBkPSJNODguMTgzNiAxNTkuOTg4QzExNy4yNTcgMTY3Ljc3OCAxMzQuNTEgMTk3LjY2MiAxMjYuNzIgMjI2LjczNUMxMjUuNDg2IDIzMS4zNCAxMjAuNzUyIDIzNC4wNzMgMTE2LjE0NyAyMzIuODM5TDYzLjUwNDEgMjE4LjczM0MyOS44MjY0IDIwOS43MSA5Ljg0MDk0IDE3NS4wOTIgMTguODY0OSAxNDEuNDE0TDg4LjE4MzYgMTU5Ljk4OFoiIGZpbGw9IiMyNDYyN0IiLz4KPHBhdGggZD0iTTE4Ni44NjcgMTcyLjk4QzE1Mi4wMDIgMTcyLjk4IDEyMy43MzcgMjAxLjI0NSAxMjMuNzM3IDIzNi4xMTFIMTg2Ljg3QzIyMS43MzYgMjM2LjExMSAyNTAgMjA3Ljg0NiAyNTAgMTcyLjk4TDE4Ni44NjcgMTcyLjk4WiIgZmlsbD0iIzMxNzQ4RiIvPgo8cGF0aCBkPSJNNjMuMTMyNyAxNzIuOThDOTcuOTk4NCAxNzIuOTggMTI2LjI2MyAyMDEuMjQ1IDEyNi4yNjMgMjM2LjExMUg2My4xM0MyOC4yNjQyIDIzNi4xMTEgLTEuNTI0MDNlLTA2IDIwNy44NDYgMCAxNzIuOThMNjMuMTMyNyAxNzIuOThaIiBmaWxsPSIjMzE3NDhGIi8+CjxwYXRoIGQ9Ik0xNzEuNzE3IDc1LjEyNjNDMTcxLjcxNyAxMDEuMjc2IDE1MC41MTggMTIyLjQ3NSAxMjQuMzY5IDEyMi40NzVDOTguMjE4OCAxMjIuNDc1IDc3LjAyMDIgMTAxLjI3NiA3Ny4wMjAyIDc1LjEyNjNDNzcuMDIwMiA0OC45NzY0IDk4LjIxODggMjcuNzc3OCAxMjQuMzY5IDI3Ljc3NzhDMTUwLjUxOCAyNy43Nzc4IDE3MS43MTcgNDguOTc2NCAxNzEuNzE3IDc1LjEyNjNaIiBmaWxsPSIjRUJCQ0JBIi8+CjxwYXRoIGQ9Ik0xNDQuMjE3IDg2LjIzNzlDMTYxLjY0OSA1Ni4wNDMyIDE1MS4zMDMgMTcuNDMyOSAxMjEuMTA4IDBMMTA2LjA2IDI2LjA2NDRDODguNjI3IDU2LjI1OSA5OC45NzM2IDk0Ljg2OTQgMTI5LjE2OCAxMTIuMzAyTDE0NC4yMTcgODYuMjM3OVoiIGZpbGw9IiNFQkJDQkEiLz4KPHBhdGggZD0iTTEyNS4yOTkgNjAuOTc4OUMxMTYuMjc1IDI3LjMwMTIgODEuNjU3NSA3LjMxNTY3IDQ3Ljk3OTcgMTYuMzM5Nkw2NC4zMTk3IDc3LjMyMTFDNzMuMzQzNiAxMTAuOTk5IDEwNy45NjEgMTMwLjk4NCAxNDEuNjM5IDEyMS45NkwxMjUuMjk5IDYwLjk3ODlaIiBmaWxsPSIjRUJCQ0JBIi8+CjxwYXRoIGQ9Ik0xMjQuOTI2IDYwLjk3ODlDMTMzLjk1IDI3LjMwMTIgMTY4LjU2NyA3LjMxNTY3IDIwMi4yNDUgMTYuMzM5NkwxODUuOTA1IDc3LjMyMTFDMTc2Ljg4MSAxMTAuOTk5IDE0Mi4yNjMgMTMwLjk4NCAxMDguNTg2IDEyMS45NkwxMjQuOTI2IDYwLjk3ODlaIiBmaWxsPSIjRUJCQ0JBIi8+Cjwvc3ZnPgo=&style=for-the-badge" />
+  </a>
+</p>
 
-A minimalist and clean [jsdoc](https://jsdoc.app/index.html) template. 
+A fork of [tidy-jsdoc](https://github.com/julie-ng/tidy-jsdoc) that uses [the Rosé Pine color palette](https://rosepinetheme.com/palette/).
 
- ### Features
+### Usage
 
- - Custom styles via [CSS variables](#adjusting-theme-with-css-variables)
- - Code syntax highlighting via [Prism.js](https://prismjs.com/)
+I haven't figured out package publishing just yet. For now, you can copy this repository and set the static path to the template in your `jsdoc.json` file.
 
-## Preview
+### Themes
 
-Note Latest Version 1.0 is considered a _breaking change_ because the design changes significantly. 
+| Rosé Pine Dawn | Rosé Pine |
+| ------------- | ------------- |
+| ![Rosé Pine Dawn (light mode)](./images/preview-light.png) | ![Rosé Pine (dark mode)](./images/preview-dark.png) |
 
-#### Examples
+### Features
 
-- [Newton Graph Library](https://julie-ng.github.io/newtonjs-graph/)
-- Using tidy-jsdoc? Open an issue to add your documentation here.
+- [Rosé Pine color theme](https://rosepinetheme.com/palette/) in both light mode and dark mode
+- Responsive layout
+- Custom styles via [CSS variables](#customization)
+- Code syntax highlighting via [Prism.js](https://prismjs.com/)
 
-<img src="./images/v1-preview-newtonjs.png" alt="Version 1.0 - Preview" style="max-width:100%;">
+### Defaults
 
-Based on the [default jsdoc template](https://github.com/jsdoc/jsdoc/tree/master/templates) and inspired in design by [vue.js documentation](https://vuejs.org/v2/api/) and [docsify](https://docsify.js.org).
+By default, this theme uses [Inter](https://rsms.me/inter/) for body text and [Martian Mono](https://evilmartians.com/products/martian-mono) for monospace. The layout is loosely inspired by the [Rosé Pine website](https://rosepinetheme.com/), but mostly keeps the form of the original [tidy-jsdoc template](https://github.com/julie-ng/tidy-jsdoc).
 
-#### Looking for the old design?
+### Customization
 
-If you want keep the old design, version your `package.json` appropriately. Preview old designs in the [images folder](./images/).
+You can overwrite most of the CSS variables by adding a `style` property in your `jsdoc.json` file. For example, if you were unhappy with the size of the header image, which by default is set to 80px, you could add a following property:
 
-Note: the old designs ^0.3.0 will not be updated or maintained.
-
-## Usage
-
-### Add Dependency
-
-To use this jsdoc template in a project, first install the packages:
-
-```
-npm install --save-dev jsdoc tidy-jsdoc
-```
-
-### Generate Docs
-
-Once you've configured jsdoc and added syntax to your JavaScript files, you can generate the HTML files like so, optionally including a readme file:
-
-```
-jsdoc --readme README.md -c jsdoc.json
+```json
+"styles": {
+  "header-image-max-height": "100px"
+}
 ```
 
-### Configure JSDoc
+This may not work with all CSS variables, or not cover a feature that you would like to change. In that case, I would recommend cloning the repository, customizing the source code, and then setting the static path to the modified template in the `jsdoc.json` file.
 
-Then configure jsdoc to use the tidy template. Below is an example `jsdoc.json` configuration file. Be sure to adjust
+### Example configuration
 
-- **template**  
-	Points to `./node_modules/tidy-jsdoc`
+This is an example of a `jsdoc.json` configuration file.
 
-- **prism-theme**  
-	Optionally pick a prismjs theme for styling your code. Defaults to "prism-tomorrow-night". Choose from templates available in [`./static/styles/vendor/`](./static/styles/vendor/) folder
-
-- **destination**  
-	Output is `./docs/`, allowing for easy GitHub Pages publishing.
-
-- **metadata**  
-	Customize title, logo, etc.
-
-- **styles**  
-	Let's your customize colors, etc. See details below.
-
-```javascript
+```json
 {
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": [
-      "jsdoc",
-      "closure"
-    ]
+    "dictionaries": ["jsdoc", "closure"]
   },
   "source": {
-    "include": [
-      "src"
-    ],
+    "include": ["src"],
     "includePattern": ".+\\.js(doc)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "opts": {
-    "template": "./node_modules/tidy-jsdoc",
-    "prism-theme": "prism-custom",
+    "template": "./rose-pine-jsdoc",
     "encoding": "utf8",
-    "destination": "./docs/",
+    "destination": "docs",
     "recurse": true
   },
-  "plugins": [
-    "plugins/markdown",
-    "plugins/summarize"
-  ],
+  "plugins": ["plugins/markdown", "plugins/summarize"],
   "templates": {
     "cleverLinks": false,
     "monospaceLinks": false
   },
   "metadata": {
-    "title": "My JavaScript Library",
-  }
-}
-```
-
-## Customize the Template
-
-### Adjusting Theme with CSS variables
-
-As of version 1.0, this template is styled via css variabbles, so you can adjust it to your brand. Inside your `jsdoc.json` configuration file, add an addional `styles` property, for example:
-
-```javascript
-{
-  "metadata": "...",
+    "title": "Project Title",
+    "logo": "./header-icon.png"
+  },
   "styles": {
-    "text-color": "#111",		
-    "primary-color": "blue",
-    "heading-color": "var(--primary-color)"
-  }	
+    "header-image-max-height": "100px"
+  }
 }
 ```
 
-This would output in your document `<head>`:
+### Generating documentation
 
-```html
-<style>
-  :root {
-    --text-color: #111;
-    --primary-color: blue;
-    --heading-color: var(--primary-color);
-  }
-<style>
-```
-The keys and values are arbitrary, but the CSS should be valid. For a full list of the available variables, see [_vars.scss](./static/styles/_vars.scss).
+Once you've configured JSDoc and added syntax to your JavaScript files, you can generate the HTML files like so. The `readme` file is optional, but it is rendered in the home page of the documentation.
 
-
-## Development
-
-For more information about creating jsdoc templates, see the [jsdoc GitHub repository](https://github.com/jsdoc/jsdoc/tree/master/templates).
-
-When editing SCSS, build the CSS automatically like so:
-
-```
-npm run sass:watch
+```sh
+jsdoc --readme README.md -c jsdoc.json
 ```
 
-Note: you'll have to commit **both** the scss and css files.
+Typically you would add this to the `scripts` in your `package.json`, so that you could generate the documentation with `npm run docs`:
+
+```json
+"scripts": {
+  "docs": "jsdoc --readme README.md -c jsdoc.json"
+}
+```
+
+### Running the demo
+
+This repository contains an `example` directory that renders an example output of this theme. It can be run with `npm run demo`.

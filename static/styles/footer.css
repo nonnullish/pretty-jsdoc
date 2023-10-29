@@ -1,0 +1,8 @@
+footer {
+  border-top: 1px solid var(--rp-highlight-high);
+  display: flex;
+  justify-content: center;
+  margin-top: var(--margin);
+  padding: var(--margin) 0;
+  text-align: center;
+}

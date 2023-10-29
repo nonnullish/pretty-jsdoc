@@ -1,0 +1,19 @@
+table {
+  background-color: var(--rp-surface);
+  border-radius: var(--border-radius);
+  border-spacing: 0;
+  overflow: hidden;
+  width: 100%;
+
+  & thead {
+    background: var(--rp-overlay);
+  }
+
+  & th, td {
+    padding: 8px;
+  }
+
+  & td {
+    border: 1px solid var(--rp-base);
+  }
+}
