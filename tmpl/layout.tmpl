@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
-  <title><?js= env.conf.metadata.title ?>: <?js= title ?></title>
+  <title><?js= env.conf.metadata.title ?><?js if (title) { ?>: <?js= title ?><?js } ?></title>
   <?js if (env.conf.opts.hasOwnProperty('prism-theme')) { ?>
     <link type="text/css" rel="stylesheet" href="styles/vendor/<?js= env.conf.opts['prism-theme'] ?>.css">
   <?js } else { ?>
     <link type="text/css" rel="stylesheet" href="styles/vendor/prism-rose-pine.css">
   <?js } ?>
   <link type="text/css" rel="stylesheet" href="styles/styles.css">
+  <link rel="shortcut icon" href="<?js= env.conf.metadata.favicon ?>" />
   <?js if (env.conf.hasOwnProperty('styles')) { ?>
   <?js var styles = env.conf.styles; ?>
   <style>

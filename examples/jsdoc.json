@@ -29,6 +29,7 @@
   },
   "metadata": {
     "title": "Rosé Pine for JSDoc",
-    "logo": "../icon.png"
+    "logo": "../icon.png",
+    "favicon": "../favicon.ico"
   }
 }
