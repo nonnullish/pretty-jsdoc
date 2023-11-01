@@ -2,4 +2,4 @@
 export const bouquet = [];
 
 /** @typedef {Array.<Tree>} */
-export const forrest = [];
+export const forest = [];
