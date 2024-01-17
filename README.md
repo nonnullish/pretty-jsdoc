@@ -13,7 +13,21 @@ A fork of [tidy-jsdoc](https://github.com/julie-ng/tidy-jsdoc) that uses [the Ro
 
 ### Usage
 
-I haven't figured out package publishing just yet. For now, you can copy this repository and set the static path to the template in your `jsdoc.json` file.
+**With npm:**
+
+Add the dependency: 
+
+```
+npm install --save-dev rose-pine-jsdoc
+```
+
+Then, in your `jsdoc.json` config, set the `template` property to `./node_modules/rose-pine-jsdoc`.
+
+**Or:**
+
+You can copy this repository and set the static path to the template in your `jsdoc.json` file.
+
+(See the [example configuration](#example-configuration))
 
 ### Themes
 
@@ -98,4 +112,4 @@ Typically you would add this to the `scripts` in your `package.json`, so that yo
 
 ### Running the demo
 
-This repository contains an `example` directory that renders an example output of this theme. It can be run with `npm run demo`.
+The GitHub repository contains an `example` directory that renders an example output of this theme. It can be run with `npm run demo`.
