@@ -6,7 +6,7 @@
   "description": "Rosé Pine for JSDoc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nonnullish/rose-pine-jsdoc.git"
+    "url": "git+https://github.com/nonnullish/rose-pine-jsdoc.git"
   },
   "keywords": [
     "jsdoc",
